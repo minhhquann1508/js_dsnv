@@ -49,7 +49,7 @@ function CheckValidDate (id,name,email,password,date,salary,position,time) {
         error++;
     }
     else {
-        warning('tbTKNV','ID không hợp lệ')
+        warning('tbTKNV','ID là số từ 4-6 ký tự')
         error++;
     }
     //validate name
@@ -57,7 +57,7 @@ function CheckValidDate (id,name,email,password,date,salary,position,time) {
         correct ('tbTen')
     }
     else{
-        warning('tbTen','Tên không hợp lệ')
+        warning('tbTen','Tên viết không dấu')
         error++;
     }
     //validate email
@@ -73,7 +73,7 @@ function CheckValidDate (id,name,email,password,date,salary,position,time) {
         correct ('tbMatKhau')
     }
     else{
-        warning('tbMatKhau','Mật khẩu không hợp lệ')
+        warning('tbMatKhau','Độ dài mật khẩu từ 6-10 ký tự bao gồm số,chữ hoa và ký tự đặc biêt')
         error++;
     }
     //validate date
@@ -124,7 +124,7 @@ function CheckValidDateUpdate (name,email,password,date,salary,position,time) {
         correct ('tbTen')
     }
     else{
-        warning('tbTen','Tên không hợp lệ')
+        warning('tbTen','Tên viết không dấu')
         error++;
     }
     //validate email
@@ -140,7 +140,7 @@ function CheckValidDateUpdate (name,email,password,date,salary,position,time) {
         correct ('tbMatKhau')
     }
     else{
-        warning('tbMatKhau','Mật khẩu không hợp lệ')
+        warning('tbMatKhau','Độ dài mật khẩu từ 6-10 ký tự bao gồm số,chữ hoa và ký tự đặc biêt')
         error++;
     }
     //validate date
@@ -265,6 +265,7 @@ getEle('searchName').oninput = (e) => {
 //tắt disable id 
 getEle('btnThem').onclick = () => {
     getEle('tknv').disabled = false;
+    getEle('btnCapNhat').disabled = true;
 }
 //get staff want to update
 function getEditStaff (index) {
@@ -279,6 +280,7 @@ function getEditStaff (index) {
     getEle('gioLam').value = staff.work_time;
     getEle('btnThem').click();
     getEle('tknv').disabled = true;
+    getEle('btnCapNhat').disabled = false;
 }
 
 //Update staff after edit
